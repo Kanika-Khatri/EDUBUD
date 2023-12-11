@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="register.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,900&family=Raleway:wght@600&display=swap"
+    rel="stylesheet">
+
+
+  <title>EduBud | Signup </title>
+</head>
+
+<body>
+
+  <form action="" method="get">
+
+    <div class="container">
+      <h1>
+        <center>Create New Account</center>
+      </h1>
+      <p>
+        <center>Already registered? <a href="login.html" style="color:dodgerblue">Login Here</a>.</center>
+      </p>
+
+      <hr>
+
+      <label for="name"><b>Username</b></label><br>
+      <input type="text" placeholder="Enter your username" name="username"><br>
+
+      <label for="password"><b>Password</b></label><br>
+      <input type="password" placeholder="Enter Password" name="password"><br>
+
+
+      <label for="cpassword"><b>Confirm Password</b></label><br>
+      <input type="password" placeholder="Confirm Password" name="cpassword"><br>
+
+
+      <br>
+
+      <button type="submit" onsubmit="validate()" class="signupbtn"><a href="home.html"
+          style="list-style: none; text-decoration: none; color: white;">Sign Up</a></button>
+    </div>
+    </div>
+
+  </form>
+  <img src="images/login.jpg" alt="" class="image">
+  <script>
+    var f = document.querySelector("form")
+    function validate() {
+      var un = f.username.value;
+      if (un.trim() == "") {
+        alert("Please enter your username.")
+        return false;
+      }
+      if (un.charAt(0).match("[0-9]")) {
+        alert("First letter can't be number.")
+        return false;
+      }
+      if (un.length < 5 || un.length > 15) {
+        alert("Username length must be between 5 to 15 characters.")
+        return false;
+      }
+      var pwd = f.password.value;
+      if (pwd == "") {
+        alert("Please enter your password.")
+        return false;
+      }
+      if (pwd.length < 7 || pwd.length > 15) {
+        alert("Password must be of atleast 8 character.")
+        return false;
+      }
+      var upperCaseCheck = /[A-Z]/;
+      var lowerCaseCheck = /[a-z]/;
+      var numberCheck = /[0-9]/;
+      var specialCharCheck = /[^A-Za-z0-9]/; 
+
+      if (!upperCaseCheck.test(pwd) || !lowerCaseCheck.test(pwd) || !numberCheck.test(pwd) || !specialCharCheck.test(pwd)) {
+        alert("Password must contain at least one capital letter, one small letter, one number, and one special character.");
+        return false;
+      }
+      var cpwd = f.cpassword.value;
+      if (pwd !== cpwd) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      return true;
+    }
+    f.addEventListener("submit", function (e) { 
+      if (!validate()) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+
+</html>

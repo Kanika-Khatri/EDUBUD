@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        background-color: rgb(60, 60, 60);
+    }
+    .hero{
+        width: 100%;
+        height: 550px;
+        display: inline-block;
+       
+    }
+    .inner-text{
+        margin-top: 200px;
+        font-size: 4rem;
+        color: white;
+    }
+</style>
+<body>
+    <div class="hero">
+        <div class="inner-text">
+          <center>404:
+          <span id="element"></span></center>
+        </div>
+      </div>
+</body>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+   var typed = new Typed('#element', {
+        strings: ['Error','Page Not Found','Try Again', 'Nothing here'],
+        typeSpeed: 70, 
+        autoStart: true,
+        loop: true,
+      });
+    var a = document.getElementById('element')
+    a.style.color = 'rgb(235, 192, 192)';
+</script>
+</html>
